@@ -1,0 +1,168 @@
+/* Background */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #b8e0d2, #66a6ff, #cdb4db);
+  background-size: 400% 400%;
+  animation: gradientFlow 12s ease infinite;
+  color: #052c50;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0077b6, #52b788);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(82, 183, 136, 0.4);
+}
+
+.logo span {
+  background: linear-gradient(90deg, #b8e0d2, #52b788);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+nav a {
+  color: #052c50;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, #66a6ff, #52b788);
+  transition: width 0.4s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #66a6ff, #52b788, #cdb4db);
+  padding: 3px;
+  cursor: pointer;
+}
+
+/* Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  padding: 2rem 3rem;
+}
+
+/* Left Section */
+.welcome-card, .health-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-card h2 span {
+  color: #52b788;
+}
+
+/* Right Section */
+.chart-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.chart-card h3 {
+  color: #004e92;
+  margin-bottom: 1.5rem;
+}
+
+/* Multi Circular Charts */
+.multi-charts {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.mini-chart {
+  text-align: center;
+}
+
+.circular-chart {
+  max-width: 120px;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 3.8;
+}
+
+.circle {
+  fill: none;
+  stroke-width: 3.8;
+  stroke-linecap: round;
+  animation: progress 1.5s ease-out forwards;
+}
+
+.circular-chart.diabetes .circle { stroke: #52b788; }
+.circular-chart.bp .circle { stroke: #66a6ff; }
+.circular-chart.asthma .circle { stroke: #cdb4db; }
+
+.percentage {
+  fill: #004e92;
+  font-size: 0.6em;
+  text-anchor: middle;
+  transform: rotate(90deg);
+}
+
+@keyframes progress {
+  0% { stroke-dasharray: 0 100; }
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  color: #052c50;
+}

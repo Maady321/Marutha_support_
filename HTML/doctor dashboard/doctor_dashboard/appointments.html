@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appointments | Doctor Dashboard</title>
+  <link rel="stylesheet" href="/CSS/doctor_dashboard.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Marutha<span>Support</span></div>
+    <nav>
+      <a href="doctor_dashboard.html">Dashboard</a>
+      <a href="patients.html">Patients</a>
+      <a href="appointments.html" class="active">Appointments</a>
+      <a href="#">Messages</a>
+      <a href="#">Logout</a>
+    </nav>
+    <div class="profile-pic">
+      <img src="doctor_profile.jpg" alt="Doctor Profile" />
+    </div>
+  </header>
+
+  <!-- Appointments Section -->
+  <main class="appointments-page">
+    <section class="page-header">
+      <h1>Appointments</h1>
+      <button class="btn-add">+ New Appointment</button>
+    </section>
+
+    <section class="appointments-list">
+      <div class="appointment-card">
+        <h3>John Doe</h3>
+        <p>Date: Nov 3, 2025</p>
+        <p>Time: 10:30 AM</p>
+        <p>Status: Confirmed</p>
+        <button class="btn-reschedule">Reschedule</button>
+      </div>
+      <div class="appointment-card">
+        <h3>Priya Sharma</h3>
+        <p>Date: Nov 3, 2025</p>
+        <p>Time: 12:00 PM</p>
+        <p>Status: Pending</p>
+        <button class="btn-reschedule">Confirm</button>
+      </div>
+      <div class="appointment-card">
+        <h3>Ravi Kumar</h3>
+        <p>Date: Nov 4, 2025</p>
+        <p>Time: 09:00 AM</p>
+        <p>Status: Completed</p>
+        <button class="btn-reschedule">View Report</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Marutha Support | Empowering Care with Technology</p>
+  </footer>
+
+  <script src="/js/doctor_dashboard.js
+  "></script>
+</body>
+</html>

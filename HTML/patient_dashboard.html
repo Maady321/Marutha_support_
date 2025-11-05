@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Dashboard | Marutha Support</title>
+  <link rel="stylesheet" href="../CSS/patient_dashboard.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Marutha<span>Support</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="patient_dashboard.html" class="active">Dashboard</a>
+    </nav>
+    <div class="profile-pic">
+      <img src="patient_profile.jpg" alt="Patient Profile" />
+    </div>
+  </header>
+
+  <!-- Main Dashboard -->
+  <main class="dashboard">
+    <!-- Left Section -->
+    <section class="left-panel">
+      <div class="welcome-card">
+        <h2>Welcome, <span>Riya Patel</span></h2>
+        <p>Your health summary and condition analysis are shown below.</p>
+      </div>
+
+      <div class="health-card">
+        <h3>Today's Health Overview</h3>
+        <ul>
+          <li>Blood Pressure: 118/76 mmHg</li>
+          <li>Heart Rate: 76 bpm</li>
+          <li>Oxygen Level: 98%</li>
+          <li>Next Appointment: Nov 6, 2025</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Right Section: Health Condition Charts -->
+    <section class="right-panel">
+      <div class="chart-card">
+        <h3>Condition Status</h3>
+        <div class="multi-charts">
+          <!-- Diabetes -->
+          <div class="mini-chart">
+            <svg viewBox="0 0 36 36" class="circular-chart diabetes">
+              <path class="circle-bg"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle" stroke-dasharray="70,100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="18" y="20.35" class="percentage">70%</text>
+            </svg>
+            <p>Diabetes</p>
+          </div>
+
+          <!-- Hypertension -->
+          <div class="mini-chart">
+            <svg viewBox="0 0 36 36" class="circular-chart bp">
+              <path class="circle-bg"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle" stroke-dasharray="85,100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="18" y="20.35" class="percentage">85%</text>
+            </svg>
+            <p>Hypertension</p>
+          </div>
+
+          <!-- Asthma -->
+          <div class="mini-chart">
+            <svg viewBox="0 0 36 36" class="circular-chart asthma">
+              <path class="circle-bg"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path class="circle" stroke-dasharray="60,100"
+                d="M18 2.0845
+                a 15.9155 15.9155 0 0 1 0 31.831
+                a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="18" y="20.35" class="percentage">60%</text>
+            </svg>
+            <p>Asthma</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Marutha Support | Care. Connect. Support.</p>
+  </footer>
+</body>
+</html>
