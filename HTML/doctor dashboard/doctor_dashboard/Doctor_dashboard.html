@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Dashboard | Marutha Support</title>
+  <link rel="stylesheet" href="/CSS/doctor_dashboard.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">Marutha<span>Support</span></div>
+    <nav>
+      <a href="./Doctor_dashboard.html">Dashboard</a>
+      <a href="./patients.html">Patients</a>
+      <a href="./appointments.html">Appointments</a>
+      <a href="#">Messages</a>
+      <a href="#">Logout</a>
+    </nav>
+
+    <!-- Profile Circle -->
+    <div class="profile-pic">
+      <img src="doctor_profile.jpg" alt="Doctor Profile" />
+    </div>
+  </header>
+
+  <!-- Dashboard Container -->
+  <main class="dashboard">
+    <section class="welcome-section">
+      <h1>Welcome, <span>Dr. Aadhavan</span></h1>
+      <p>Here’s your summary for today.</p>
+    </section>
+
+    <!-- Stats Cards -->
+    <section class="stats">
+      <div class="card">
+        <h3>25</h3>
+        <p>Patients</p>
+      </div>
+      <div class="card">
+        <h3>12</h3>
+        <p>Appointments</p>
+      </div>
+      <div class="card">
+        <h3>5</h3>
+        <p>Messages</p>
+      </div>
+      <div class="card">
+        <h3>8</h3>
+        <p>Reports</p>
+      </div>
+    </section>
+
+    <!-- Main Panels -->
+    <section class="main-content">
+      <div class="panel recent-patients">
+        <h2>Recent Patients</h2>
+        <ul>
+          <li>John Doe - Fever & Cough</li>
+          <li>Priya Sharma - Regular Checkup</li>
+          <li>Ravi Kumar - Post Surgery Review</li>
+        </ul>
+      </div>
+      <div class="panel notifications">
+        <h2>Notifications</h2>
+        <ul>
+          <li>Appointment with John at 10:30 AM</li>
+          <li>Lab reports ready for Priya</li>
+          <li>New message from Volunteer Team</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Marutha Support | Empowering Care with Technology</p>
+  </footer>
+
+  <script src="doctor_dashboard.js"></script>
+</body>
+</html>
