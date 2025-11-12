@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat with Doctor | Marutha Support</title>
+  <link rel="stylesheet" href="../CSS/chat.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">Marutha<span>Support</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="doctor_dashboard.html">Dashboard</a>
+      <a href="chat_doctor.html" class="active">Chat</a>
+      <a href="resources.html">Resources</a>
+    </nav>
+  </header>
+
+  <!-- Main Layout -->
+  <main class="chat-layout">
+    <!-- Left: Doctor Grid -->
+    <aside class="doctor-list glass">
+      <h2>Available Doctors</h2>
+      <div class="doctor-grid" id="doctorGrid">
+        <!-- doctors rendered by JS -->
+      </div>
+    </aside>
+
+    <!-- Right: Chat Window -->
+    <section class="chat-window glass">
+      <div class="chat-header">
+        <div class="doctor-info">
+          <img id="doctorAvatar" src="images/default-doc.jpg" alt="Doctor" />
+          <div>
+            <h3 id="doctorName">Select a Doctor</h3>
+            <p id="doctorStatus">Offline</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-messages" id="chatMessages">
+        <p class="placeholder">Choose a doctor to start chatting</p>
+      </div>
+
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="Type your message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Marutha Support | Connecting Doctors & Patients</p>
+  </footer>
+
+  <!-- Socket.IO -->
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="../js/chat.js"></script>
+</body>
+</html>
