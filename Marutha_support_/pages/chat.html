@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages — Marutha Support</title>
+  <link rel="stylesheet" href="../style/chat.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand-row">
+      <img src="../assets/logo.png" class="side-logo" />
+      <span class="brand-name">Marutha Support</span>
+    </div>
+
+    <nav class="side-nav">
+      <a class="side-link" href="dashboard.html">Dashboard</a>
+      <a class="side-link" href="appointments.html">Appointments</a>
+      <a class="side-link active" href="./chat.html">Messages</a>
+      <a class="side-link" href="resources.html">Resources</a>
+      <a class="side-link" href="profile.html">Profile</a>
+
+      <div class="side-sep"></div>
+
+      <a class="side-link">⚙️ Settings</a>
+      <a class="side-link logout">↩ Logout</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="top-left">
+        <h2>Marutha Support</h2>
+      </div>
+      <div class="top-right">
+        <div class="avatar">
+          <img src="https://picsum.photos/seed/avatar/120/120" />
+          <span class="status"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- LAYOUT -->
+    <div class="chat-layout">
+
+      <!-- LEFT PANEL -->
+      <aside class="left-panel">
+
+        <div class="panel-section">
+          <h3>Recent Chats</h3>
+
+          <div class="chat-user active">
+            <img src="https://picsum.photos/seed/doc1/160/160" />
+            <div>
+              <strong>Dr. Emily White</strong>
+              <p>Thank you for the update!</p>
+            </div>
+            <span class="time">10:30 AM</span>
+          </div>
+
+          <div class="chat-user">
+            <img src="https://picsum.photos/seed/doc2/160/160" />
+            <div>
+              <strong>Dr. Michael Lee</strong>
+              <p>Appointment confirmed.</p>
+            </div>
+            <span class="time">Yesterday</span>
+          </div>
+
+        </div>
+
+        <div class="panel-section">
+          <h3>Available Doctors</h3>
+
+          <div class="doctor-row">
+            <img src="https://picsum.photos/seed/doc1/100/100" />
+            <div>
+              <strong>Dr. Emily White</strong>
+              <p>Palliative Specialist</p>
+            </div>
+          </div>
+
+          <div class="doctor-row">
+            <img src="https://picsum.photos/seed/doc2/100/100" />
+            <div>
+              <strong>Dr. Michael Lee</strong>
+              <p>Reproductive Endocrinologist</p>
+            </div>
+          </div>
+
+          <div class="doctor-row">
+            <img src="https://picsum.photos/seed/doc3/100/100" />
+            <div>
+              <strong>Dr. Sarah Chen</strong>
+              <p>Holistic Wellness Coach</p>
+            </div>
+          </div>
+
+          <div class="doctor-row">
+            <img src="https://picsum.photos/seed/doc4/100/100" />
+            <div>
+              <strong>Dr. David Kim</strong>
+              <p>Clinical Psychologist</p>
+            </div>
+          </div>
+
+        </div>
+
+      </aside>
+
+      <!-- CHAT WINDOW -->
+      <section class="chat-window">
+
+        <div class="chat-header">
+          <div class="doc-info">
+            <img src="https://picsum.photos/seed/doc1/160/160" />
+            <div>
+              <strong>Dr. Emily White</strong>
+              <span class="online">● Online</span>
+            </div>
+          </div>
+
+          <div class="chat-actions">
+            📞 📎
+          </div>
+        </div>
+
+        <div class="messages">
+
+          <!-- Patient message -->
+          <div class="msg user">
+            <p>Hello Dr. White, I wanted to follow up on the test results we discussed last week.</p>
+            <small>10:00 AM</small>
+          </div>
+
+          <!-- Doctor message -->
+          <div class="msg doctor">
+            <p>Certainly, I have reviewed them. The results are positive, and we can proceed with the next steps as planned.</p>
+            <small>10:05 AM</small>
+          </div>
+
+          <!-- Patient message -->
+          <div class="msg user">
+            <p>That's wonderful news! I was quite anxious about this. What should be my next steps?</p>
+            <small>10:10 AM</small>
+          </div>
+
+          <!-- Doctor message -->
+          <div class="msg doctor">
+            <p>I understand. Please schedule a follow-up consultation through the portal. I have opened up some slots for next week.</p>
+            <small>10:15 AM</small>
+          </div>
+
+          <!-- Patient message -->
+          <div class="msg user">
+            <p>Thank you for the update!</p>
+            <small>10:30 AM</small>
+          </div>
+
+        </div>
+
+        <!-- INPUT -->
+        <div class="chat-input">
+          <input type="text" placeholder="Type your message here..." />
+          <button class="send-btn">➤</button>
+        </div>
+
+      </section>
+    </div>
+
+    <footer class="footer">
+      © 2025 Marutha Support. All rights reserved.
+    </footer>
+
+  </div>
+</div>
+
+</body>
+</html>

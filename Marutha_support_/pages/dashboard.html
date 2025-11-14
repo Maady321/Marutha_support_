@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — Marutha Support</title>
+  <link rel="stylesheet" href="../style/dashboard.css" />
+</head>
+<body>
+
+  <!-- APP LAYOUT -->
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <img src="../assets/logo.png" alt="logo" class="side-logo" />
+        <span class="brand-name">Marutha Support</span>
+      </div>
+
+      <nav class="side-nav">
+        <a class="side-link active" href="./dashboard.html"><span class="icon">▦</span> Dashboard</a>
+        <a class="side-link" href="./appointments.html"><span class="icon">📅</span> Appointments</a>
+        <a class="side-link" href="./chat.html"><span class="icon">💬</span> Messages</a>
+        <a class="side-link" href="./resources.html"><span class="icon">📚</span> Resources</a>
+        <a class="side-link" href="./profile.html"><span class="icon">👤</span> Profile</a>
+
+        <div class="side-sep"></div>
+
+        <a class="side-link"><span class="icon">⚙️</span> Settings</a>
+        <a class="side-link logout"><span class="icon">↩</span> Logout</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="top-left">
+          <button id="hamburger" class="hamburger" aria-label="Toggle menu">☰</button>
+          <div class="top-title">Marutha Support</div>
+        </div>
+        <div class="top-right">
+          <div class="avatar" title="You">
+            <img src="https://picsum.photos/seed/avatar/120/120" alt="avatar" />
+            <span class="status"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="content">
+        <!-- Cards -->
+        <section class="card-row">
+          <article class="card glass">
+            <div class="card-head">
+              <small>Next Consultation</small>
+              <span class="card-icon">🩺</span>
+            </div>
+            <h3 class="card-title">Dr. Anya Sharma</h3>
+            <p class="muted">Tomorrow, 10:00 AM — Palliative Review</p>
+            <a class="card-btn" href="./doctor_consultaion.html">Book Consultation</a>
+          </article>
+
+          <article class="card glass">
+            <div class="card-head">
+              <small>Cycle Summary</small>
+              <span class="card-icon">💙</span>
+            </div>
+            <h3 class="card-title">Day 14</h3>
+            <p class="muted">Peak palliative window approaching</p>
+            <div class="progress">
+              <div class="progress-bar" style="width:50%"></div>
+            </div>
+            <small class="progress-meta">50% through current cycle</small>
+          </article>
+
+          <article class="card glass">
+            <div class="card-head">
+              <small>Wellness Score</small>
+              <span class="card-icon">⚖️</span>
+            </div>
+            <h3 class="card-title">85 / 100</h3>
+            <p class="muted">Maintain healthy habits</p>
+            <div class="progress">
+              <div class="progress-bar progress-primary" style="width:85%"></div>
+            </div>
+            <small class="progress-meta">Overall well-being</small>
+          </article>
+
+          <article class="card glass">
+            <div class="card-head">
+              <small>Quick Links</small>
+              <span class="card-icon">🔗</span>
+            </div>
+            <h3 class="card-title">Explore Resources</h3>
+            <p class="muted">Find guides, articles, and support.</p>
+            <a class="card-btn ghost" href="./resources.html">Explore Resources</a>
+          </article>
+        </section>
+
+        <!-- Recent Activity -->
+        <section class="activity glass-plate">
+          <h2>Recent Activity</h2>
+          <p class="sub">Keep track of your latest interactions and updates.</p>
+
+          <ul class="activity-list">
+            <li>
+              <div class="tick">💬</div>
+              <div class="a-content">
+                <div class="a-meta"><strong>Just now</strong></div>
+                <div class="a-text">Dr. Anya Sharma sent a new message.</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="tick">📅</div>
+              <div class="a-content">
+                <div class="a-meta"><strong>2 hours ago</strong></div>
+                <div class="a-text">You have a consultation with Dr. John Doe tomorrow at 10:00 AM.</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="tick">📚</div>
+              <div class="a-content">
+                <div class="a-meta"><strong>Yesterday</strong></div>
+                <div class="a-text">New guide "Understanding Your Cycle" added to Resources.</div>
+              </div>
+            </li>
+
+            <li>
+              <div class="tick">💚</div>
+              <div class="a-content">
+                <div class="a-meta"><strong>3 days ago</strong></div>
+                <div class="a-text">You completed your daily wellness check-in.</div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div>© 2025 Marutha Support. All rights reserved.</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // small toggle for mobile sidebar
+    const hb = document.getElementById('hamburger');
+    const sb = document.getElementById('sidebar');
+    hb && hb.addEventListener('click', () => {
+      sb.classList.toggle('collapsed');
+    });
+
+    // mark active link based on click (UI convenience)
+    document.querySelectorAll('.side-link').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.side-link').forEach(s => s.classList.remove('active'));
+        el.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
