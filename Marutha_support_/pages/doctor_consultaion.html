@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Consultation — Marutha Support</title>
+  <link rel="stylesheet" href="../style/doctor_consultaion.css" />
+</head>
+<body>
+
+  <!-- NAVBAR (reuse your site navbar) -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="../assets/logo.png" alt="logo" class="logo">
+      <span class="brand">Marutha Support</span>
+    </div>
+    <nav class="nav-links">
+      <a href="./home.html">Home</a>
+      <a href="./about.html">About</a>
+      <a class="active" href="./service.html">Service</a>
+      <a href="./resources.html">Resources</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+    <button class="login-btn">Login</button>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="page-shell">
+
+    <!-- LEFT: doctors/search -->
+    <section class="left-col">
+      <h1>Find Your Palliative Specialist</h1>
+
+      <div class="search-box">
+        <input id="searchInput" type="search" placeholder="Search doctors by name or specialization..." aria-label="Search doctors">
+      </div>
+
+      <div id="doctorsList" class="doctor-list">
+        <!-- Doctor items inserted statically here for sample; replace with real data if available -->
+        <article class="doctor-item" data-id="1">
+          <img src="https://picsum.photos/seed/doc1/160/160" alt="Dr. Eleanor Vance" class="doc-avatar">
+          <div class="doc-meta">
+            <h3>Dr. Eleanor Vance</h3>
+            <p class="muted">Reproductive Endocrinologist — 15 yrs</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ⭐ <strong>4.9</strong></div>
+            <div class="item-actions">
+              <button class="btn ghost view-profile" data-id="1">View Profile</button>
+              <button class="btn primary select-doctor" data-id="1">Select</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="doctor-item" data-id="2">
+          <img src="https://picsum.photos/seed/doc2/160/160" alt="Dr. Marcus Thorne" class="doc-avatar">
+          <div class="doc-meta">
+            <h3>Dr. Marcus Thorne</h3>
+            <p class="muted">Palliative Specialist — 10 yrs</p>
+            <div class="rating">⭐ ⭐ ⭐ ⭐ ☆ <strong>4.7</strong></div>
+            <div class="item-actions">
+              <button class="btn ghost view-profile" data-id="2">View Profile</button>
+              <button class="btn primary select-doctor" data-id="2">Select</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more doctor-item blocks as needed -->
+      </div>
+    </section>
+
+    <!-- RIGHT: booking panel -->
+    <aside class="right-col glass-panel">
+
+      <h2>Book Your Consultation</h2>
+
+      <!-- Doctor chosen summary -->
+      <div id="selectedSummary" class="summary">
+        <div class="summary-row">
+          <strong>Selected:</strong>
+          <span id="selDoctor">None</span>
+        </div>
+        <div class="summary-row">
+          <strong>Date:</strong>
+          <span id="selDate">—</span>
+        </div>
+        <div class="summary-row">
+          <strong>Time:</strong>
+          <span id="selTime">—</span>
+        </div>
+        <div class="summary-row">
+          <strong>Type:</strong>
+          <span id="selType">—</span>
+        </div>
+      </div>
+
+      <!-- Date selection -->
+      <label class="field-label">Select Date</label>
+      <input id="dateInput" type="date" min="" aria-label="Select appointment date">
+
+      <!-- Available time slots (will be generated) -->
+      <label class="field-label">Available Time Slots</label>
+      <div id="slotsGrid" class="slots-grid" role="list"></div>
+
+      <!-- Consultation type -->
+      <label class="field-label">Consultation Type</label>
+      <div class="type-row">
+        <label class="type-option"><input name="ctype" type="radio" value="video"> Video</label>
+        <label class="type-option"><input name="ctype" type="radio" value="inperson"> In-person</label>
+        <label class="type-option"><input name="ctype" type="radio" value="chat"> Chat</label>
+      </div>
+
+      <!-- Patient details -->
+      <label class="field-label">Patient Info</label>
+      <input id="patientName" type="text" placeholder="Full name" aria-label="Full name">
+      <input id="patientEmail" type="email" placeholder="Email address" aria-label="Email address">
+      <input id="patientPhone" type="tel" placeholder="Phone number" aria-label="Phone number">
+
+      <!-- Notes -->
+      <label class="field-label">Notes (optional)</label>
+      <textarea id="notes" rows="3" placeholder="Medical notes, preferences, or questions..."></textarea>
+
+      <!-- Payment stub -->
+      <div class="payment-stub">
+        <h4>Payment (mock)</h4>
+        <div class="payment-row">
+          <input id="cardNumber" maxlength="19" placeholder="Card number (mock)" aria-label="Card number">
+        </div>
+        <div class="payment-row">
+          <input id="cardExp" placeholder="MM/YY" style="width:48%">
+          <input id="cardCvv" placeholder="CVV" style="width:48%">
+        </div>
+        <small class="muted">No real payment processed. This is a demo form.</small>
+      </div>
+
+      <!-- Book button -->
+      <button id="bookBtn" class="btn primary wide" disabled>Book Appointment</button>
+
+      <!-- Confirmation modal -->
+      <div id="confirmModal" class="modal" aria-hidden="true">
+        <div class="modal-inner" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+          <h3 id="confirmTitle">Appointment Confirmed</h3>
+          <p id="confirmText"></p>
+          <div class="modal-actions">
+            <button id="closeModal" class="btn ghost">Close</button>
+            <button id="goDashboard" class="btn primary">Go to Dashboard</button>
+          </div>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Marutha Support</h3>
+        <p>Compassionate Support for Every Palliative Journey.</p>
+      </div>
+      <div class="footer-section">
+        <h4>About Us</h4>
+        <a href="./about.html">Mission</a>
+        <a href="./about.html">Team</a>
+      </div>
+      <div class="footer-section">
+        <h4>Services</h4>
+        <a href="./service.html">Consultation</a>
+        <a href="./service.html">Emotional Support</a>
+      </div>
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>Email: info@maruthasupport.com</p>
+      </div>
+    </div>
+  </footer>
+
+<script>
+/* ---------- tiny booking logic (client-side demo) ---------- */
+
+(function(){
+  // sample availability per doctor (mock)
+  const availability = {
+    "1": ["09:00 AM","10:00 AM","02:00 PM","03:00 PM"],
+    "2": ["10:00 AM","11:00 AM","04:00 PM","05:00 PM"]
+  };
+
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('dateInput').setAttribute('min', today);
+
+  let selectedDoctorId = null;
+  let selectedTime = null;
+  let selectedDate = null;
+  let selectedType = null;
+
+  // elements
+  const selDoctorEl = document.getElementById('selDoctor');
+  const selDateEl = document.getElementById('selDate');
+  const selTimeEl = document.getElementById('selTime');
+  const selTypeEl = document.getElementById('selType');
+  const slotsGrid = document.getElementById('slotsGrid');
+  const bookBtn = document.getElementById('bookBtn');
+
+  // doctor selection
+  document.querySelectorAll('.select-doctor').forEach(btn=>{
+    btn.addEventListener('click', e=>{
+      const id = btn.dataset.id;
+      selectDoctor(id);
+    });
+  });
+
+  function selectDoctor(id){
+    selectedDoctorId = id;
+    // highlight selected doctor UI
+    document.querySelectorAll('.doctor-item').forEach(it=>{
+      it.classList.toggle('active', it.dataset.id === id);
+    });
+    const name = document.querySelector('.doctor-item[data-id="'+id+'"] h3').innerText;
+    selDoctorEl.innerText = name;
+    updateSlots();
+    validateForm();
+  }
+
+  // update slots grid based on doctor
+  function updateSlots(){
+    slotsGrid.innerHTML = '';
+    selectedTime = null;
+    selTimeEl.innerText = '—';
+    if(!selectedDoctorId) return;
+    const slots = availability[selectedDoctorId] || [];
+    slots.forEach(s=>{
+      const btn = document.createElement('button');
+      btn.className = 'slot';
+      btn.type = 'button';
+      btn.innerText = s;
+      btn.addEventListener('click', ()=>{
+        // toggle
+        document.querySelectorAll('#slotsGrid .slot').forEach(x=>x.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedTime = s;
+        selTimeEl.innerText = s;
+        validateForm();
+      });
+      slotsGrid.appendChild(btn);
+    });
+  }
+
+  // date change
+  document.getElementById('dateInput').addEventListener('change', (e)=>{
+    selectedDate = e.target.value;
+    selDateEl.innerText = selectedDate || '—';
+    validateForm();
+  });
+
+  // consultation type
+  document.querySelectorAll('input[name="ctype"]').forEach(r=>{
+    r.addEventListener('change', (e)=>{
+      selectedType = e.target.value;
+      selTypeEl.innerText = (selectedType || '—').replace('inperson','In-person');
+      validateForm();
+    });
+  });
+
+  // simple validation for book button
+  function validateForm(){
+    const name = document.getElementById('patientName').value.trim();
+    const email = document.getElementById('patientEmail').value.trim();
+    const phone = document.getElementById('patientPhone').value.trim();
+    const ready = selectedDoctorId && selectedDate && selectedTime && selectedType && name && (email || phone);
+    bookBtn.disabled = !ready;
+    return ready;
+  }
+
+  // inputs validation watchers
+  ['patientName','patientEmail','patientPhone'].forEach(id=>{
+    document.getElementById(id).addEventListener('input', validateForm);
+  });
+
+  // search filter
+  document.getElementById('searchInput').addEventListener('input', (e)=>{
+    const q = e.target.value.toLowerCase();
+    document.querySelectorAll('.doctor-item').forEach(it=>{
+      const name = it.querySelector('h3').innerText.toLowerCase();
+      const meta = it.querySelector('.muted').innerText.toLowerCase();
+      it.style.display = (name.includes(q) || meta.includes(q)) ? '' : 'none';
+    });
+  });
+
+  // Booking action: show modal confirmation (client-side demo)
+  bookBtn.addEventListener('click', ()=>{
+    if(!validateForm()) return;
+    const name = document.getElementById('patientName').value.trim();
+    const doctorName = selDoctorEl.innerText;
+    const dt = selectedDate;
+    const tm = selectedTime;
+    const ctype = selTypeEl.innerText;
+    const note = document.getElementById('notes').value.trim();
+
+    const text = `
+      <strong>${doctorName}</strong><br>
+      Appointment for <strong>${name}</strong><br>
+      ${dt} at ${tm} — ${ctype}<br>
+      ${note ? 'Notes: ' + note : ''}
+    `;
+    document.getElementById('confirmText').innerHTML = text;
+    showModal();
+  });
+
+  // modal logic
+  const modal = document.getElementById('confirmModal');
+  document.getElementById('closeModal').addEventListener('click', hideModal);
+  document.getElementById('goDashboard').addEventListener('click', ()=>{
+    hideModal();
+    window.location.href = './dashboard.html';
+  });
+
+  function showModal(){
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+  }
+  function hideModal(){
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  // small: choose default doctor
+  // selects first doctor by default for convenience:
+  const firstSelect = document.querySelector('.select-doctor');
+  if(firstSelect) firstSelect.click();
+
+})();
+</script>
+
+</body>
+</html>

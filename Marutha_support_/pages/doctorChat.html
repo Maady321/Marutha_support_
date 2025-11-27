@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Chat | Marutha Support</title>
+  <link rel="stylesheet" href="../style/doctorchat.css">
+</head>
+
+<body>
+
+<div class="chat-shell">
+
+  <!-- LEFT SIDEBAR -->
+  <aside class="sidebar glass">
+    <h2 class="title">Conversations</h2>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search patient...">
+    </div>
+
+    <div class="chat-list">
+
+      <div class="chat-item active">
+        <img src="../assets/p1.jpg">
+        <div>
+          <h4>Anya Sharma</h4>
+          <p>Thank you doctor…</p>
+        </div>
+      </div>
+
+      <div class="chat-item">
+        <img src="../assets/p2.jpg">
+        <div>
+          <h4>David Lee</h4>
+          <p>Has my report…</p>
+        </div>
+      </div>
+
+      <div class="chat-item">
+        <img src="../assets/p3.jpg">
+        <div>
+          <h4>Emily Chen</h4>
+          <p>I feel anxious…</p>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- RIGHT AREA -->
+  <main class="chat-area">
+
+    <!-- TOP BAR -->
+    <div class="chat-top glass">
+      <div class="user-info">
+        <img src="../assets/p1.jpg">
+        <div>
+          <h3>Anya Sharma</h3>
+          <span class="status">Online</span>
+        </div>
+      </div>
+      <div class="tools">
+        <button>📄</button>
+        <button>📞</button>
+        <button>📑</button>
+      </div>
+    </div>
+
+    <!-- MESSAGES -->
+    <div class="messages">
+      <div class="msg left">Hello doctor, I wanted to follow up on my reports.</div>
+      <div class="msg right">Yes, I reviewed them. Everything looks stable.</div>
+      <div class="msg left">Great! What should I do next?</div>
+      <div class="msg right">Let's schedule a follow-up consultation.</div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="input-bar glass">
+      <input type="text" placeholder="Type your message...">
+      <button class="send-btn">➤</button>
+    </div>
+
+  </main>
+
+  <!-- TOOLS PANEL -->
+  <aside class="tools-panel glass">
+    <h3>Patient Info</h3>
+    <p><strong>Name:</strong> Anya Sharma</p>
+    <p><strong>Age:</strong> 29</p>
+    <p><strong>Last Visit:</strong> 2 days ago</p>
+
+    <hr>
+
+    <h3>Quick Notes</h3>
+    <textarea placeholder="Add doctor notes..."></textarea>
+
+    <button class="save-btn">Save Notes</button>
+
+    <hr>
+
+    <h3>Actions</h3>
+    <button class="action-btn">View Reports</button>
+    <button class="action-btn">Book Consultation</button>
+    <button class="action-btn">Send Wellness Plan</button>
+  </aside>
+
+</div>
+
+</body>
+</html>

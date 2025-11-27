@@ -1,0 +1,354 @@
+:root {
+  --blue: #1e88e5;
+  --green: #00897b;
+  --lavender: #b39ddb;
+  --glass: rgba(255, 255, 255, 0.15);
+  --border: rgba(0, 137, 123, 0.3);
+  --radius: 16px;
+  --shadow: 0 8px 32px rgba(30, 136, 229, 0.1);
+  --bg-gradient: linear-gradient(90deg, #00897b, #1e88e5);
+}
+
+/* Layout base */
+*{box-sizing:border-box}
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: var(--bg-gradient);
+  color: #222;
+}
+
+.app { display: flex; }
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background: rgba(13, 71, 161, 0.7);
+  backdrop-filter: blur(12px);
+  border-right: 2px solid rgba(30, 136, 229, 0.3);
+  padding: 22px 16px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  box-shadow: 8px 0 32px rgba(30, 136, 229, 0.1);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.side-logo { 
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 137, 123, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.15);
+}
+
+.side-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.side-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  color: #b3e5fc;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.side-link:hover { 
+  background: rgba(0, 137, 123, 0.2);
+  color: #ffffff;
+}
+
+.side-link.active {
+  background: rgba(30, 136, 229, 0.2);
+  color: #80deea;
+}
+
+.logout { color: #ff6b6b !important; }
+
+.side-sep {
+  height: 1px;
+  margin: 12px 0;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Main area */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Topbar */
+.topbar {
+  height: 65px;
+  background: rgba(30, 136, 229, 0.7);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid rgba(30, 136, 229, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 26px;
+  box-shadow: 0 8px 32px rgba(30, 136, 229, 0.1);
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(224, 242, 241, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 137, 123, 0.3);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #21d07a;
+  border-radius: 50%;
+  bottom: 2px;
+  right: 2px;
+  border: 2px solid white;
+}
+
+/* Chat layout */
+.chat-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  padding: 20px 25px;
+}
+
+/* Left Panel */
+.left-panel {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  padding: 18px;
+  border: 2px solid rgba(0, 137, 123, 0.3);
+  height: calc(100vh - 120px);
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(30, 136, 229, 0.1);
+}
+
+.panel-section { margin-bottom: 30px; }
+
+.panel-section h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+/* Recent chats */
+.chat-user {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.chat-user.active {
+  background: rgba(30, 136, 229, 0.2);
+}
+
+.chat-user img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-user p {
+  font-size: 13px;
+  color: #b3e5fc;
+}
+
+.chat-user .time {
+  margin-left: auto;
+  font-size: 12px;
+  color: #80deea;
+}
+
+/* Doctors List */
+.doctor-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+.doctor-row img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.doctor-row p { 
+  font-size: 13px;
+  color: #b3e5fc;
+}
+
+/* CHAT WINDOW */
+.chat-window {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  border: 2px solid rgba(0, 137, 123, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 120px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(30, 136, 229, 0.1);
+}
+
+/* chat header */
+.chat-header {
+  padding: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doc-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.doc-info img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+.online {
+  color: #21d07a;
+  font-size: 13px;
+}
+
+.chat-actions { 
+  font-size: 20px;
+  color: #ffffff;
+}
+
+/* message area */
+.messages {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.msg {
+  max-width: 70%;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  border-radius: 14px;
+}
+
+.msg small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  text-align: right;
+}
+
+/* user bubbles */
+.msg.user {
+  background: rgba(30, 136, 229, 0.3);
+  margin-left: auto;
+  color: #ffffff;
+  border: 1px solid rgba(30, 136, 229, 0.5);
+}
+
+/* doctor bubbles */
+.msg.doctor {
+  background: rgba(233, 30, 99, 0.3);
+  color: #ffffff;
+  margin-right: auto;
+  border: 1px solid rgba(233, 30, 99, 0.5);
+}
+
+/* input bar */
+.chat-input {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chat-input input {
+  flex: 1;
+  border: 1px solid rgba(30, 136, 229, 0.3);
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 15px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+.chat-input input::placeholder {
+  color: #b3e5fc;
+}
+
+.send-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #1e88e5;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 8px 20px rgba(30, 136, 229, 0.3);
+}
+
+.send-btn:hover {
+  background: #1565c0;
+  box-shadow: 0 10px 25px rgba(30, 136, 229, 0.4);
+}
+
+/* FOOTER */
+.footer {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #b3e5fc;
+  border-top: 2px solid rgba(30, 136, 229, 0.3);
+  background: rgba(13, 71, 161, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 -8px 32px rgba(13, 71, 161, 0.1);
+}

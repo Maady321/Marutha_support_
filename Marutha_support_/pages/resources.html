@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resources — Marutha Support</title>
+  <link rel="stylesheet" href="../style/resources.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <img src="../assets/logo.png" class="logo" alt="logo" />
+      <span class="brand">Marutha Support</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="./home.html">Home</a>
+      <a href="./about.html">About</a>
+      <a href="./service.html">Service</a>
+      <a class="active" href="./resources.html">Resources</a>
+      <a href="./dashboard.html">Dashboard</a>
+    </nav>
+
+    <button class="login-btn">Login</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-spot">
+    <h1>Empower Your Journey with Knowledge</h1>
+    <p>Explore our curated collection of articles, guides, and tools designed to support your fertility journey and holistic well-being.</p>
+
+    <div class="filters" role="tablist" aria-label="Resource categories">
+      <button class="pill active" data-cat="all">All</button>
+      <button class="pill" data-cat="fertility">Fertility</button>
+      <button class="pill" data-cat="nutrition">Nutrition</button>
+      <button class="pill" data-cat="mental">Mental Health</button>
+      <button class="pill" data-cat="lifestyle">Lifestyle</button>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <main class="content-wrap">
+    <section id="cardsGrid" class="cards-grid">
+
+      <!-- Card template (static sample entries). Replace/extend with backend output as needed. -->
+      <article class="card" data-cat="palliative">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/resource1/600/400" alt="Fertility guide">
+        </div>
+        <div class="card-body">
+          <span class="tag">Palliative</span>
+          <h3>Understanding Your Fertility Journey: A Comprehensive Guide</h3>
+          <p class="excerpt">Explore the stages of fertility, common challenges, and available support options. This guide offers insights into reproductive health and planning.</p>
+          <div class="meta">
+            <span>Oct 26, 2024</span>
+            <span>•</span>
+            <span>8 min read</span>
+            <a class="read-more" href="./resources.html">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="nutrition">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/resource2/600/400" alt="Nutrition for fertility">
+        </div>
+        <div class="card-body">
+          <span class="tag">Nutrition</span>
+          <h3>Nourishing Your Body for Optimal Fertility</h3>
+          <p class="excerpt">Discover key nutritional strategies and dietary recommendations to support reproductive health and overall well-being.</p>
+          <div class="meta">
+            <span>Oct 20, 2024</span><span>•</span><span>6 min read</span>
+            <a class="read-more" href="./resources.html">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="mental">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/resource3/600/400" alt="Mental wellness">
+        </div>
+        <div class="card-body">
+          <span class="tag">Mental Health</span>
+          <h3>Coping with Stress: Mental Wellness Strategies During Fertility Treatment</h3>
+          <p class="excerpt">Learn effective techniques to manage stress and maintain mental well-being throughout your fertility journey.</p>
+          <div class="meta">
+            <span>Oct 15, 2024</span><span>•</span><span>7 min read</span>
+            <a class="read-more" href="./resources.html">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="lifestyle">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/resource4/600/400" alt="Lifestyle changes">
+        </div>
+        <div class="card-body">
+          <span class="tag">Lifestyle</span>
+          <h3>Lifestyle Adjustments for a Healthier Reproductive Future</h3>
+          <p class="excerpt">Small, practical lifestyle changes that can positively influence fertility and overall health.</p>
+          <div class="meta">
+            <span>Oct 10, 2024</span><span>•</span><span>5 min read</span>
+            <a class="read-more" href="./resources.html">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="palliative">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/resource5/600/400" alt="Advanced treatments">
+        </div>
+        <div class="card-body">
+          <span class="tag">Palliative</span>
+          <h3>Advanced Fertility Treatments: What You Need to Know</h3>
+          <p class="excerpt">An in-depth look at advanced fertility treatments, their processes, and what to expect.</p>
+          <div class="meta">
+            <span>Oct 05, 2024</span><span>•</span><span>10 min read</span>
+            <a class="read-more" href="./resources.html">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-cat="nutrition">
+        <div class="card-media">
+          <img src="https://picsum.photos/seed/resource6/600/400" alt="Supplements">
+        </div>
+        <div class="card-body">
+          <span class="tag">Nutrition</span>
+          <h3>The Role of Supplements in Fertility Health</h3>
+          <p class="excerpt">Understand which supplements may be beneficial and how to choose them safely and effectively.</p>
+          <div class="meta">
+            <span>Sep 30, 2024</span><span>•</span><span>6 min read</span>
+            <a class="read-more" href="./resources.html">Read More</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Add more cards as required. Pagination & filtering will handle visibility. -->
+    </section>
+
+    <!-- PAGINATION -->
+    <nav class="pagination-wrap" aria-label="Resources pagination">
+      <button id="prevPage" class="page-btn">Previous</button>
+      <div class="page-numbers" id="pageNumbers"></div>
+      <button id="nextPage" class="page-btn">Next</button>
+    </nav>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <h3>Marutha Support</h3>
+        <p>Compassionate Support for Every Fertility Journey.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>About Us</h4>
+          <a href="./about.html">Mission</a>
+          <a href="./about.html">Team</a>
+          <a href="./about.html">Careers</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Services</h4>
+          <a href="./service.html">Consultation</a>
+          <a href="./service.html">Emotional Support</a>
+          <a href="./service.html">Wellness Coaching</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Resources</h4>
+          <a href="./resources.html">Blog</a>
+          <a href="./resources.html">Guides</a>
+          <a href="./resources.html">FAQs</a>
+      </div>
+
+      <div class="footer-section">
+        <h4>Contact</h4>
+        <p>123 Fertility Way</p>
+        <p>Email: info@maruthasupport.com</p>
+        <p>Phone: +1 (555) 123-4567</p>
+      </div>
+    </div>
+
+    <p class="copyright">© 2025 Marutha Support. All rights reserved.</p>
+  </footer>
+
+<script>
+/* Minimal filtering + pagination script
+   - Filters by data-cat
+   - Paginates cards (perPage)
+*/
+(function(){
+  const perPage = 6;
+  const allCards = Array.from(document.querySelectorAll('#cardsGrid .card'));
+  const pills = Array.from(document.querySelectorAll('.filters .pill'));
+  const pageNumbersEl = document.getElementById('pageNumbers');
+  const prevBtn = document.getElementById('prevPage');
+  const nextBtn = document.getElementById('nextPage');
+
+  let currentCat = 'all';
+  let currentPage = 1;
+  function filterAndPaginate(){
+    const filtered = currentCat === 'all' ? allCards : allCards.filter(c => c.dataset.cat === currentCat);
+    const total = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / perPage));
+    if(currentPage > totalPages) currentPage = totalPages;
+
+    // hide all then show current page items
+    allCards.forEach(c => c.style.display = 'none');
+    const start = (currentPage - 1) * perPage;
+    const pageItems = filtered.slice(start, start + perPage);
+    pageItems.forEach(c => c.style.display = '');
+
+    // pagination UI
+    pageNumbersEl.innerHTML = '';
+    for(let i=1;i<=totalPages;i++){
+      const btn = document.createElement('button');
+      btn.className = 'page-num' + (i===currentPage ? ' active' : '');
+      btn.innerText = i;
+      btn.addEventListener('click', ()=> { currentPage = i; filterAndPaginate(); });
+      pageNumbersEl.appendChild(btn);
+    }
+
+    prevBtn.disabled = currentPage === 1;
+    nextBtn.disabled = currentPage === totalPages;
+  }
+
+  // pill click
+  pills.forEach(p => p.addEventListener('click', ()=>{
+    pills.forEach(x=>x.classList.remove('active'));
+    p.classList.add('active');
+    currentCat = p.dataset.cat;
+    currentPage = 1;
+    filterAndPaginate();
+    // smooth scroll to grid
+    document.querySelector('.content-wrap').scrollIntoView({behavior:'smooth'});
+  }));
+
+  prevBtn.addEventListener('click', ()=> { if(currentPage>1){ currentPage--; filterAndPaginate(); }});
+  nextBtn.addEventListener('click', ()=> { currentPage++; filterAndPaginate(); });
+
+  // initialize
+  filterAndPaginate();
+})();
+</script>
+
+</body>
+</html>

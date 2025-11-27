@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cycle Overview — Marutha Support</title>
+  <link rel="stylesheet" href="../style/patients_dashboard.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <img src="../assets/logo.png" alt="logo" class="side-logo" />
+        <span class="brand-name">Marutha Support</span>
+      </div>
+
+      <nav class="side-nav">
+        <a class="side-link active" href="./patients_dashboard.html">▦ Dashboard</a>
+        <a class="side-link" href="./appointments.html">📅 Appointments</a>
+        <a class="side-link" href="./chat.html">💬 Messages</a>
+        <a class="side-link" href="./resources.html">📚 Resources</a>
+        <a class="side-link" href="./profile.html">👤 Profile</a>
+
+        <div class="side-sep"></div>
+
+        <a class="side-link" href="./settings.html">⚙ Settings</a>
+        <a class="side-link logout" href="./logout.html">↩ Logout</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <!-- TOPBAR -->
+      <header class="topbar">
+        <div class="top-left">
+          <button id="hamburger" class="hamburger" aria-label="Toggle menu">☰</button>
+          <div class="top-title">Marutha Support</div>
+        </div>
+        <div class="top-right">
+          <div class="avatar" title="You">
+            <img src="https://picsum.photos/seed/avatar/120/120" alt="You" />
+            <span class="status"></span>
+          </div>
+        </div>
+      </header>
+
+      <!-- CONTENT -->
+      <main class="content">
+
+        <section class="layout">
+          <!-- CENTER PANEL -->
+          <section class="center-panel glass-card">
+            <div class="panel-header">
+              <h2>Cycle Overview</h2>
+              <div class="selects">
+                <select id="month-select">
+                  <option>November</option>
+                  <option>October</option>
+                </select>
+                <select id="year-select">
+                  <option>2025</option>
+                  <option>2024</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="calendar-wrap">
+              <div class="calendar">
+                <div class="weekdays">
+                  <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+                </div>
+                <div class="dates">
+                  <!-- row of calendar days - simplified static example -->
+                  <div class="day"><span class="dot active">●</span><div class="dnum">2</div></div>
+                  <div class="day"><span class="dot active">●</span><div class="dnum">3</div></div>
+                  <div class="day"><span class="dot active">●</span><div class="dnum">4</div></div>
+                  <div class="day"><span class="dot active">●</span><div class="dnum">5</div></div>
+                  <div class="day"><span class="dot active">●</span><div class="dnum">6</div></div>
+                  <div class="day"><span class="dot active">●</span><div class="dnum">7</div></div>
+                  <div class="day"><span class="dot">○</span><div class="dnum">8</div></div>
+
+                  <!-- second row -->
+                  <div class="day"><div class="dnum">9</div></div>
+                  <div class="day"><div class="dnum">10</div></div>
+                  <div class="day"><div class="dnum">11</div></div>
+                  <div class="day"><div class="dnum">12</div></div>
+                  <div class="day"><div class="dnum">13</div></div>
+                  <div class="day"><div class="dnum">14</div></div>
+                  <div class="day"><div class="dnum">15</div></div>
+
+                  <!-- more days quickly - simplified -->
+                  <div class="day"><div class="dnum">16</div></div>
+                  <div class="day"><div class="dnum">17</div></div>
+                  <div class="day"><div class="dnum">18</div></div>
+                  <div class="day"><div class="dnum">19</div></div>
+                  <div class="day"><div class="dnum">20</div></div>
+                  <div class="day"><div class="dnum">21</div></div>
+                  <div class="day"><div class="dnum">22</div></div>
+
+                  <div class="day"><div class="dnum">23</div></div>
+                  <div class="day"><div class="dnum">24</div></div>
+                  <div class="day"><div class="dnum">25</div></div>
+                  <div class="day"><div class="dnum">26</div></div>
+                  <div class="day"><div class="dnum">27</div></div>
+                  <div class="day"><div class="dnum">28</div></div>
+                  <div class="day"><div class="dnum">29</div></div>
+
+                  <div class="day"><div class="dnum">30</div></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-wrap">
+              <h3>Patients health Trend</h3>
+              <canvas id="metricsChart" height="220"></canvas>
+              <div class="legend">
+                <span class="legend-item"><span class="swatch temp"></span>Temperature (°C)</span>
+                <span class="legend-item"><span class="swatch hormone"></span>Hormone Levels (mIU/mL)</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- RIGHT RAIL -->
+          <aside class="right-rail">
+            <div class="rail-card glass-card">
+              <h4>Upcoming Consultations</h4>
+              <div class="upcoming">
+                <div class="up-item">
+                  <img src="https://picsum.photos/seed/doc1/160/160" alt="" />
+                  <div>
+                    <strong>Dr. Emily White</strong>
+                    <small>Reproductive Endocrinologist</small>
+                    <div class="time">8/15/2024 at 10:00 AM</div>
+                  </div>
+                  <a class="view" href="./appointments.html">View Details</a>
+                </div>
+
+                <div class="up-item">
+                  <img src="https://picsum.photos/seed/doc2/160/160" alt="" />
+                  <div>
+                    <strong>Dr. Marcus Lee</strong>
+                    <small>Palliative Specialist</small>
+                    <div class="time">8/20/2024 at 02:30 PM</div>
+                  </div>
+                  <a class="view" href="./appointments.html">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="rail-card glass-card">
+              <h4>My Tasks</h4>
+              <ul class="tasks">
+                <li><label><input type="checkbox"> Track basal body temperature <span class="tag high">High</span><small>Due: Daily</small></label></li>
+                <li><label><input type="checkbox" checked> Log prenatal vitamin intake <span class="tag med">Medium</span><small>Due: Daily</small></label></li>
+                <li><label><input type="checkbox"> Schedule follow-up with nutritionist <span class="tag high">High</span><small>Due: 2024-08-18</small></label></li>
+              </ul>
+            </div>
+
+            <div class="rail-card glass-card">
+              <h4>Personalized Wellness</h4>
+              <div class="wellness">
+                <div class="well-item">
+                  <strong>Mindful Me Practice</strong>
+                  <p>Dedicate 15 minutes daily to meditation to reduce stress. <a href="./resources.html">Learn More</a></p>
+                </div>
+                <div class="well-item">
+                  <strong>Balanced Nutrition Guide</strong>
+                  <p>Focus on whole foods, lean proteins, and healthy fats for palliative support. <a href="./resources.html">Learn More</a></p>
+                </div>
+                <div class="well-item">
+                  <strong>Hydration Challenge</strong>
+                  <p>Drink at least 8 glasses of water daily for optimal health. <a href="./resources.html">Learn More</a></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="rail-card chat-cta">
+              <h4>Chat with Your Doctor</h4>
+              <p>Get quick answers or share updates.</p>
+              <a class="btn primary" href="./chat.html">Start New Chat</a>
+            </div>
+
+          </aside>
+        </section>
+
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="app-footer">
+        <div>© 2025 Marutha Support. All rights reserved.</div>
+      </footer>
+
+    </div>
+  </div>
+
+  Chart.js CDN
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    // small sidebar toggle for mobile
+    document.getElementById('hamburger')?.addEventListener('click', () => {
+      document.getElementById('sidebar')?.classList.toggle('collapsed');
+    });
+
+    // Render palliative metrics chart (temperature vs hormone)
+    const ctx = document.getElementById('metricsChart').getContext('2d');
+    const labels = ['Day 1','Day 4','Day 7','Day 10','Day 13','Day 16','Day 19','Day 22','Day 25','Day 28'];
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Temperature (°C)',
+            data: [36.2, 36.5, 36.8, 37.1, 36.6, 36.9, 37.2, 36.8, 36.5, 36.3],
+            borderColor: '#4b6ef5',
+            backgroundColor: 'rgba(75,110,245,0.06)',
+            tension: 0.36,
+            yAxisID: 'yTemp'
+          },
+          {
+            label: 'Hormone Levels (mIU/mL)',
+            data: [10, 13, 20, 24, 18, 15, 25, 22, 16, 9],
+            borderColor: '#e06a9a',
+            backgroundColor: 'rgba(224,106,154,0.06)',
+            tension: 0.36,
+            yAxisID: 'yHormone'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          yTemp: {
+            type: 'linear', position: 'left', min: 35.2, max: 38.5,
+            grid: { color: 'rgba(0,0,0,0.03)' }
+          },
+          yHormone: {
+            type: 'linear', position: 'right', min: 0, max: 28,
+            grid: { drawOnChartArea: false }
+          },
+          x: { grid: { display: false } }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
