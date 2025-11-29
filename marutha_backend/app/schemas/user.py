@@ -14,8 +14,10 @@ class UserUpdate(BaseModel):
     role: Optional[str]
     is_active: Optional[bool]
 
+from uuid import UUID
+
 class UserOut(BaseModel):
-    id: str
+    id: UUID
     email: EmailStr
     name: str
     role: str
@@ -23,4 +25,4 @@ class UserOut(BaseModel):
     profile_photo_url: Optional[str] = None
 
     class Config:
-        orm_mode = True
+        from_attributes = True

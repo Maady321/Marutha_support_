@@ -9,6 +9,9 @@ from datetime import datetime
 # CREATE DOCTOR
 # ---------------------------
 def create_doctor(db: Session, data: dict):
+    from uuid import UUID
+    if 'user_id' in data and isinstance(data['user_id'], str):
+        data['user_id'] = UUID(data['user_id'])
     doctor = Doctor(**data)
     db.add(doctor)
     db.commit()

@@ -20,7 +20,12 @@ router = APIRouter(prefix="/patients", tags=["patients"])
 @router.post("/", response_model=PatientOut, status_code=status.HTTP_201_CREATED)
 def create_patient_record(payload: PatientCreate, db: Session = Depends(get_db),
                           current_user = Depends(require_role("admin", "doctor"))):
-    patient = create_patient(db, payload.user_id, payload.medical_history, payload.dob, payload.gender, payload.address)
+    from uuid import UUID
+    try:
+        user_uuid = UUID(payload.user_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid user_id format")
+    patient = create_patient(db, user_uuid, payload.medical_history, payload.dob, payload.gender, payload.address)
     return patient
 
 # List patients - admin and doctor only
@@ -69,7 +74,12 @@ def remove_patient(patient_id: str, db: Session = Depends(get_db), current_user 
 # Add stage entry - doctor or admin can add a stage
 @router.post("/{patient_id}/stages", response_model=StageOut, status_code=status.HTTP_201_CREATED)
 def create_stage(patient_id: str, payload: StageCreate, db: Session = Depends(get_db), current_user = Depends(require_role("admin", "doctor"))):
-    patient = get_patient(db, patient_id)
+    from uuid import UUID
+    try:
+        patient_uuid = UUID(patient_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid patient_id format")
+    patient = get_patient(db, patient_uuid)
     if not patient:
         raise HTTPException(status_code=404, detail="Patient not found")
     stage = add_stage(db, patient, payload.stage_name, recorded_by=current_user.id, notes=payload.notes)

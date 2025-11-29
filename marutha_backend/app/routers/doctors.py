@@ -3,6 +3,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List, Optional
 
+from app.models.doctor import Doctor
 from app.core.roles import require_role
 from app.core.deps import get_db, get_current_user
 
@@ -23,11 +24,6 @@ from app.services.doctor_service import (
 )
 
 router = APIRouter(prefix="/doctors", tags=["Doctors"])
-
-
-# ---------------------------
-# CREATE DOCTOR (ADMIN ONLY)
-# ---------------------------
 @router.post("/", response_model=DoctorOut, status_code=status.HTTP_201_CREATED)
 def create_new_doctor(
     payload: DoctorCreate,
@@ -35,7 +31,13 @@ def create_new_doctor(
     current_user=Depends(require_role("admin"))
 ):
     # check if user_id already assigned to any doctor
-    existing = db.query(DoctorOut).filter_by(user_id=payload.user_id).first()
+    from uuid import UUID
+    try:
+        user_uuid = UUID(payload.user_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid user_id format")
+        
+    existing = db.query(Doctor).filter_by(user_id=user_uuid).first()
     if existing:
         raise HTTPException(status_code=400, detail="Doctor already exists for this user")
 

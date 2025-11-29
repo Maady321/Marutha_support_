@@ -9,7 +9,7 @@ from app.schemas.consultation import ConsultationUpdate
 def create_consultation(db: Session, patient_id: str, doctor_id: str,
                         scheduled_time, reason: str):
     cons = Consultation(
-        id=str(uuid.uuid4()),
+        id=uuid.uuid4(),
         patient_id=patient_id,
         doctor_id=doctor_id,
         scheduled_time=scheduled_time,

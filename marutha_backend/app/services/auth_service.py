@@ -39,6 +39,6 @@ def authenticate_user(db: Session, email: str, password: str):
 
 
 def create_tokens(user_id: int):
-    access = create_access_token({"user_id": user_id})
-    refresh = create_refresh_token({"user_id": user_id})
+    access = create_access_token({"user_id": str(user_id)})
+    refresh = create_refresh_token({"user_id": str(user_id)})
     return access, refresh

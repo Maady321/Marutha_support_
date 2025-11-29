@@ -9,7 +9,7 @@ class Doctor(Base):
     __tablename__ = "doctors"
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     specialization = Column(String(200), nullable=True, index=True)
     qualifications = Column(Text, nullable=True)
@@ -21,12 +21,14 @@ class Doctor(Base):
     available = Column(Boolean, nullable=False, server_default="true")
     is_active = Column(Boolean, nullable=False, server_default="true")
 
-    created_at = Column(DateTime(timezone=True), server_default="now()", nullable=False)
-    updated_at = Column(DateTime(timezone=True), server_default="now()", nullable=False)
+    from sqlalchemy.sql import func
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+    updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     # relationships
     user = relationship("User", backref="doctor", uselist=False)
     patients = relationship("Patient", backref="assigned_doctor", lazy="select")
+    consultations = relationship("Consultation", back_populates="doctor", cascade="all, delete-orphan")
 
     def __repr__(self):
         return f"Doctor id={self.id} user_id={self.user_id} specialization={self.specialization}"

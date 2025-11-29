@@ -31,10 +31,17 @@ def get_consultations(db: Session = Depends(get_db), current_user = Depends(requ
 def new_consultation(payload: ConsultationCreate, 
                      db: Session = Depends(get_db),
                      current_user = Depends(require_role("admin", "doctor"))):
+    from uuid import UUID
+    try:
+        patient_uuid = UUID(payload.patient_id)
+        doctor_uuid = UUID(payload.doctor_id)
+    except ValueError:
+        raise HTTPException(status_code=400, detail="Invalid ID format")
+        
     return create_consultation(
         db,
-        payload.patient_id,
-        payload.doctor_id,
+        patient_uuid,
+        doctor_uuid,
         payload.scheduled_time,
         payload.reason
     )

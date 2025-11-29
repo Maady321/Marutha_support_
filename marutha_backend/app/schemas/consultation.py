@@ -32,14 +32,19 @@ class ConsultationUpdate(BaseModel):
 # -----------------------------------------------------
 # Output Schema
 # -----------------------------------------------------
+from uuid import UUID
+
+# -----------------------------------------------------
+# Output Schema
+# -----------------------------------------------------
 class ConsultationOut(BaseModel):
-    id: str
-    patient_id: str
-    doctor_id: str
+    id: UUID
+    patient_id: UUID
+    doctor_id: UUID
     scheduled_time: datetime
     reason: Optional[str]
     status: str
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True

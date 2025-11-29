@@ -20,12 +20,14 @@ class TokenResponse(BaseModel):
     token_type: str = "bearer"
 
 
+from uuid import UUID
+
 class UserOut(BaseModel):
-    id: str
+    id: UUID
     email: EmailStr
     name: str
     role: str
     is_active: bool
 
     class Config:
-        orm_mode = True
+        from_attributes = True

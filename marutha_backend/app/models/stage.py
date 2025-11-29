@@ -13,6 +13,6 @@ class Stage(Base):
     stage_name = sa.Column(sa.String(100), nullable=False)
     notes = sa.Column(sa.Text, nullable=True)
     recorded_by = sa.Column(UUID(as_uuid=True), sa.ForeignKey("users.id", ondelete="SET NULL"), nullable=True)
-    recorded_at = sa.Column(sa.DateTime(timezone=True), server_default=sa.text("now()"), nullable=False)
+    recorded_at = sa.Column(sa.DateTime(timezone=True), server_default=sa.func.now(), nullable=False)
 
     patient = relationship("Patient", back_populates="stages")

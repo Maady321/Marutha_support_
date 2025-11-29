@@ -1,5 +1,6 @@
 from sqlalchemy import Column, String, DateTime, Text, ForeignKey
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.postgresql import UUID
 from app.db.base import Base
 import uuid
 from datetime import datetime
@@ -8,9 +9,9 @@ from datetime import datetime
 class Consultation(Base):
     __tablename__ = "consultations"
 
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    patient_id = Column(String, ForeignKey("patients.id", ondelete="CASCADE"), nullable=False)
-    doctor_id = Column(String, ForeignKey("doctors.id", ondelete="CASCADE"), nullable=False)
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    patient_id = Column(UUID(as_uuid=True), ForeignKey("patients.id", ondelete="CASCADE"), nullable=False)
+    doctor_id = Column(UUID(as_uuid=True), ForeignKey("doctors.id", ondelete="CASCADE"), nullable=False)
 
     scheduled_time = Column(DateTime, nullable=False)
     reason = Column(Text, nullable=True)

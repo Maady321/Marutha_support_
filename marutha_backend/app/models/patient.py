@@ -22,18 +22,26 @@ class Patient(Base):
     gender = sa.Column(sa.String(20), nullable=True)
     address = sa.Column(sa.Text, nullable=True)
 
+    # Foreign key to Doctor
+    doctor_id = sa.Column(
+        UUID(as_uuid=True),
+        sa.ForeignKey("doctors.id", ondelete="SET NULL"),
+        nullable=True,
+    )
+
     # Correct foreign key to Stage table
     current_stage_id = sa.Column(UUID(as_uuid=True), nullable=True)
 
     created_at = sa.Column(
         sa.DateTime(timezone=True),
-        server_default=sa.text("now()"),
+        server_default=sa.func.now(),
         nullable=False,
     )
 
     updated_at = sa.Column(
         sa.DateTime(timezone=True),
-        server_default=sa.text("now()"),
+        server_default=sa.func.now(),
+        onupdate=sa.func.now(),
         nullable=False,
     )
 
@@ -43,4 +51,8 @@ class Patient(Base):
     # Patient has many stages
     stages = relationship(
         "Stage", back_populates="patient", cascade="all, delete-orphan"
+    )
+
+    consultations = relationship(
+        "Consultation", back_populates="patient", cascade="all, delete-orphan"
     )
